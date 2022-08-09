@@ -1,70 +1,96 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Blog app
 
-> Description the project.
+**[Work in progress]**
+
+The Blog app is a classic example of a blog website. It's a fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
+- Ruby
+- Rails
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+- You should have ruby installed in your machine, you can follow the steps given by the [official documentation](https://www.ruby-lang.org/en/documentation/installation/).
+
+- You should have a postgres user with superuser permissions. you can refer to the official [postgres documentation](https://www.postgresql.org/docs/current/role-attributes.html#:~:text=To%20create%20a%20new%20database,that%20is%20already%20a%20superuser.&text=A%20role%20must%20be%20explicitly,use%20CREATE%20ROLE%20name%20CREATEDB%20.) to create or update a role.
+
 ### Setup
+
+First, you must clone this repository locally running this command:
+
+```
+git clone git@github.com:anagudelogu/blog_app.git
+```
+
+and navigate to the cloned directory:
+
+```
+cd blog_app
+```
 
 ### Install
 
+Once inside the project directory, you should install all project dependencies:
+
+- Install bundler:
+
+```
+gem install bundler
+```
+
+- Install project dependencies
+
+```
+bundle install
+```
+
 ### Usage
+
+You can get the app running locally by opening a local server:
+
+```
+bin/rails server
+```
 
 ### Run tests
 
-### Deployment
+If you're on a linux-based system, you could run the executable file to run all specs:
+
+```
+bin/rspec
+```
+
+Windows users have to specify ruby in this case:
+
+```
+ruby bin/rspec
+```
 
 ## Authors
 
-👤 **Author1**
+👤 **Andres Agudelo**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@anagudelogu](https://github.com/anagudelogu)
+- Twitter: [@AgudeloAndres\_\_](https://twitter.com/AgudeloAndres__)
+- LinkedIn: [Andres Agudelo Guzman](https://linkedin.com/in/aagst)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/anagudelogu/blog_app/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
