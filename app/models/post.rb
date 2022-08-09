@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   def update_post_counter
     author.postscounter.nil? ? author.update(postscounter: 1) : author.update(postscounter: author.postscounter + 1)
   end
+
+  def most_recent_comments
+    comments.order(created_at: :desc).limit(5)
+  end
 end
