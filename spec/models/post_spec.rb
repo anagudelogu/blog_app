@@ -16,8 +16,12 @@ RSpec.describe Post, type: :model do
     expect(post).to have_attributes(text: 'text')
   end
 
-  describe '#update_posts_counter' do
-    it "should add 1 to the author's postscounter"
+  describe '#update_post_counter' do
+    it "should add 1 to the author's postscounter" do
+      expect(author.postscounter).to be_zero
+      post.update_post_counter
+      expect(author.postscounter).to eq(1)
+    end
   end
 
   describe '#most_recent_comments' do
