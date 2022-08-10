@@ -1,9 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  it 'should have an author'
-  it 'should have a title'
-  it 'should have text'
+  let(:author) { User.new(name: 'name', photo: 'photo', bio: 'bio') }
+  let(:post) { Post.new(author:, title: 'title', text: 'text') }
+
+  it 'should have an author' do
+    expect(post).to have_attributes(author:)
+  end
+
+  it 'should have a title' do
+    expect(post).to have_attributes(title: 'title')
+  end
+
+  it 'should have text' do
+    expect(post).to have_attributes(text: 'text')
+  end
 
   describe '#update_posts_counter' do
     it "should add 1 to the author's postscounter"
