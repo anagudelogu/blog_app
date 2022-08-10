@@ -19,7 +19,11 @@ RSpec.describe Like, type: :model do
   end
 
   describe '#update_likes_counter' do
-    it "should add 1 to post's likes counter"
+    it "should add 1 to post's likes counter" do
+      expect(post.likescounter).to be_zero
+      like.update_likes_counter
+      expect(post.likescounter).to eq(1)
+    end
   end
 
   describe 'validations' do
