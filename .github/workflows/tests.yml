@@ -1,7 +1,7 @@
 env:
   RUBY_VERSION: 3.1.2
-  POSTGRES_USER: ${{ secrets.POSTGRES_USERNAME }}
-  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_USERNAME }}
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
   RAILS_ENV: test
 
 name: Rails Specs
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     services:
       postgres:
-        image: postgres:latest
+        image: postgres:14
         ports:
           - 5432:5432
         options: >-
@@ -38,11 +38,7 @@ jobs:
           bundler install
       - name: Create database
         run: |
-          bundler exec rails db:prepare RAILS_ENV=test
-        env:
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          bin/rails db:prepare RAILS_ENV=test
       - name: Run tests
         run: bin/rspec
       - name: Upload coverage results
