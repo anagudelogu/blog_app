@@ -23,7 +23,11 @@ RSpec.describe Comment, type: :model do
   end
 
   describe '#update_comments_counter' do
-    it "should add 1 to post's commentscounter"
+    it "should add 1 to post's commentscounter" do
+      expect(post.commentscounter).to be_zero
+      comment.update_comments_counter
+      expect(post.commentscounter).to eq(1)
+    end
   end
 
   describe 'Validations' do
