@@ -17,11 +17,20 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Validations' do
-    it 'should not be valid if a name is not provided'
+    it 'should not be valid if a name is not provided' do
+      user.name = nil
+      expect(user).not_to be_valid
+    end
 
     describe '@postscounter' do
-      it 'should be an integer'
-      it 'should be greater than or equal than 0'
+      it 'should be an integer' do
+        expect(user.postscounter).to be_an(Integer)
+      end
+
+      it 'should not be valid if is less than 0' do
+        user.postscounter = -1
+        expect(user).not_to be_valid
+      end
     end
   end
 end
