@@ -31,8 +31,18 @@ RSpec.describe Comment, type: :model do
   end
 
   describe 'Validations' do
-    it 'should not be valid if author is not provided'
-    it 'should not be valid if post is not provided'
-    it 'should not be valid if text is not provided'
+    it 'should not be valid if author is not provided' do
+      comment.author = nil
+      expect(comment).not_to be_valid
+    end
+
+    it 'should not be valid if post is not provided' do
+      comment.post = nil
+      expect(comment).not_to be_valid
+    end
+    it 'should not be valid if text is not provided' do
+      comment.text = nil
+      expect(comment).not_to be_valid
+    end
   end
 end
