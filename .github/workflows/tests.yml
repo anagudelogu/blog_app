@@ -2,10 +2,10 @@ env:
   RUBY_VERSION: 3.1.2
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
-  POSTGRES_DB: blog_app_test
+  POSTGRES_DB: blog_test
 
 name: Rails Specs
-on: [push, pull_request]
+on: pull_request
 jobs:
   rspec-test:
     name: RSpec
@@ -28,11 +28,12 @@ jobs:
       - name: Install dependencies
         run: |
           gem install bundler
-          bundler install
+          bundle install --jobs 4 --retry 3
+
       - name: Create database
         run: |
-          bundler exec rails db:create RAILS_ENV=test
-          bundler exec rails db:migrate RAILS_ENV=test
+          bundler exec rails db:prepare RAILS_ENV=test
+
       - name: Run tests
         run: bin/rspec
       - name: Upload coverage results
@@ -41,4 +42,3 @@ jobs:
         with:
           name: coverage-report
           path: coverage
-
