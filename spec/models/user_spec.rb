@@ -16,6 +16,22 @@ RSpec.describe User, type: :model do
     expect(user).to have_attributes(bio: 'bio')
   end
 
+  describe '#most_recent_posts' do
+    before do
+      (1..6).each { Post.create(author: user, title: 'title', text: 'text') }
+    end
+
+    it 'should return an array of posts' do
+      posts = user.most_recent_posts.to_a
+      expect(posts).to include(an_instance_of(Post))
+    end
+
+    it 'should return an array with at maximum, three elements' do
+      posts = user.most_recent_posts.to_a
+      expect(posts.size).to be <= 3
+    end
+  end
+
   describe 'Validations' do
     it 'should not be valid if a name is not provided' do
       user.name = nil
