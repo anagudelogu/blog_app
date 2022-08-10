@@ -25,8 +25,19 @@ RSpec.describe Post, type: :model do
   end
 
   describe '#most_recent_comments' do
-    it 'should return an array of comments'
-    it 'should return an array with, at maximum, five elements'
+    before do
+      (1..10).each { Comment.create(author:, post:, text: 'text') }
+    end
+
+    it 'should return an array of comments' do
+      comments = post.most_recent_comments.to_a
+      expect(comments).to include(an_instance_of(Comment))
+    end
+
+    it 'should return an array with, at maximum, five elements' do
+      comments = post.most_recent_comments.to_a
+      expect(comments.size).to be <= 5
+    end
   end
 
   describe 'Validations' do
