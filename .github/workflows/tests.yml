@@ -2,7 +2,7 @@ env:
   RUBY_VERSION: 3.1.2
   POSTGRES_USER: ${{ secrets.POSTGRES_USERNAME }}
   POSTGRES_PASSWORD: ${{ secrets.POSTGRES_USERNAME }}
-  POSTGRES_DB: blog_test
+  RAILS_ENV: test
 
 name: Rails Specs
 on: pull_request
@@ -15,9 +15,16 @@ jobs:
         image: postgres:latest
         ports:
           - 5432:5432
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         env:
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_DB: blog_test
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
@@ -31,8 +38,7 @@ jobs:
           bundler install
       - name: Create database
         run: |
-          bin/rails db:create RAILS_ENV=test
-          bin/rails db:migrate RAILS_ENV=test
+          bundler exec rails db:prepare RAILS_ENV=test
       - name: Run tests
         run: bin/rspec
       - name: Upload coverage results
