@@ -27,7 +27,13 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'validations' do
-    it 'should not be valid if author is not provided'
-    it 'should not be valid if post is not provided'
+    it 'should not be valid if author is not provided' do
+      like.author = nil
+      expect(like).not_to be_valid
+    end
+    it 'should not be valid if post is not provided' do
+      like.post = nil
+      expect(like).not_to be_valid
+    end
   end
 end
