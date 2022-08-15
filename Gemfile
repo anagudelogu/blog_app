@@ -57,6 +57,10 @@ group :development, :test do
 
   # Rspec
   gem 'rspec-rails'
+
+  # Factory-bot - Factory instances (mocks-stubs, etc)
+  # See https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
 end
 
 group :development do
