@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  let(:author) { User.new(name: 'name', photo: 'photo', bio: 'bio') }
-  let(:post) { Post.new(author:, title: 'title', text: 'text') }
+  let(:author) { build(:user) }
+  let(:post) { build(:post, author:) }
   let(:like) { Like.new(author:, post:) }
 
   before do

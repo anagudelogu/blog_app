@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:author) { User.new(name: 'name', photo: 'photo', bio: 'bio') }
+  let(:author) { build(:user) }
   let(:post) { Post.new(author:, title: 'title', text: 'text') }
 
   before do
@@ -31,7 +31,7 @@ RSpec.describe Post, type: :model do
 
   describe '#most_recent_comments' do
     before do
-      10.times { Comment.create(author:, post:, text: 'text') }
+      10.times { create(:comment, author:, post:) }
     end
 
     it 'should return an array of comments' do
