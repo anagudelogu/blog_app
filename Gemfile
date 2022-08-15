@@ -77,5 +77,6 @@ end
 group :test do
   # Code coverage
   # https://github.com/colszowka/simplecov
+  gem 'rails-controller-testing'
   gem 'simplecov', require: false
 end
