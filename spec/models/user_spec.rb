@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
 
   describe '#most_recent_posts' do
     before do
-      (1..6).each { Post.create(author: user, title: 'title', text: 'text') }
+      (1..6).each { create(:post, author: user) }
     end
 
     it 'should return an array of posts' do
