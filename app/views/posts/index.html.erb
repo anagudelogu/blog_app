@@ -1,1 +1,15 @@
-<h1>here's a list of posts for user </h1>
+<section class="posts">
+  <%= render "shared/user_card", user: @author %>
+  <div class="posts__expanded_view">
+  <% @posts.each_with_index do |post, index|%>
+    <% break if index == 2 %>
+    <%= render "shared/post_card", post: post, index: index+1%>
+      <ul class="posts__comments">
+        <% post.most_recent_comments.each do |comment| %>
+          <%= render "shared/comment_card", author: @author, comment: comment %>
+        <% end %>
+      </ul>
+  <% end %>
+  </div>
+</section>
+

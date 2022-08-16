@@ -1,0 +1,9 @@
+.posts {
+  padding: 1rem;
+}
+
+.posts__comments {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+}
