@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  after_save :update_post_counter
+
   def update_post_counter
     author.update(postscounter: author.postscounter + 1)
   end
