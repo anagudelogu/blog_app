@@ -7,9 +7,9 @@
     </p>
   </div>
   <ul class="user__post_list">
-    <% @user.most_recent_posts.each_with_index do |post, index|%>
+    <% @user.most_recent_posts.each do |post|%>
     <li>
-      <%= render "shared/post_card", post: post, index: index+1%>
+      <%= render "shared/post_card", post: post %>
     </li>
     <% end %>
   </ul>

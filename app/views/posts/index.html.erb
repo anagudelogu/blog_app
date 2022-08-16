@@ -3,7 +3,7 @@
   <div class="posts__expanded_view">
   <% @posts.each_with_index do |post, index|%>
     <% break if index == 2 %>
-    <%= render "shared/post_card", post: post, index: index+1%>
+    <%= render "shared/post_card", post: post %>
       <ul class="posts__comments">
         <% post.most_recent_comments.each do |comment| %>
           <%= render "shared/comment_card", author: @author, comment: comment %>
@@ -11,5 +11,6 @@
       </ul>
   <% end %>
   </div>
+  <button class="posts__pagination" type="button">Pagination</button>
 </section>
 
