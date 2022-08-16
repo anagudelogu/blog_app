@@ -23,9 +23,11 @@ RSpec.describe Post, type: :model do
 
   describe '#update_post_counter' do
     it "should add 1 to the author's postscounter" do
-      expect(author.postscounter).to be_zero
-      post.update_post_counter
+      # When a Post gets created this counter increments, so we created one earlier
+      # and expect the counter to be 1 at this point.
       expect(author.postscounter).to eq(1)
+      post.update_post_counter
+      expect(author.postscounter).to eq(2)
     end
   end
 
