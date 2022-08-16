@@ -1,1 +1,15 @@
-<h1>This is post: <%= @post_id %> from user: <%= @user_id %> </h1>
+<section class="post">
+  <div class="post__content">
+    <h3 class="post__title"><%= "#{@post.title} by #{@post.author.name}" %></h3>
+    <span class="post__counters"><%= "Comments: #{@post.commentscounter} Likes: #{@post.likescounter}"%></span>
+    <p class="post__text">
+      <%= @post.text %>
+    </p>
+  </div>
+  <ul class="post__comments">
+    <% @post.comments.each do |comment| %>
+      <%= render "shared/comment_card", author: @post.author, comment: comment %>
+    <% end %>
+  </ul>
+
+</section>

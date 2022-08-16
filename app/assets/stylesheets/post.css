@@ -1,0 +1,28 @@
+.post {
+  padding: 1rem;
+}
+
+.post__content {
+  border: 2px solid black;
+  min-height: 500px;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.post__title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.post__counters {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+}
+
+.post__comments {
+  border: 2px solid black;
+  min-height: 300px;
+  padding: 0.5rem 1rem;
+}

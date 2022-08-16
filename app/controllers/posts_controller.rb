@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post_id = params[:id]
-    @user_id = params[:user_id]
+    @post = Post.where(user_id: params[:user_id]).find(params[:id])
   end
 end
