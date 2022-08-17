@@ -1,8 +1,8 @@
 <div class="post_card">
   <h4 class="post_card__title"><%= post.title %></h4>
   <p class="post_card__text">
-    <% if post.text.size > 150 %>
-      <%= "#{post.text[0,150]}..." %>
+    <% if text_long?(post.text) %>
+      <%= trimm_text(post.text) %>
     <% else %>
       <%= post.text %>
     <% end %>
