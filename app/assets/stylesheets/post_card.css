@@ -1,0 +1,18 @@
+.post_card {
+  padding: 0.8rem;
+  border: 2px solid black;
+  min-height: 120px;
+  position: relative;
+}
+
+.post_card__title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.post_card__counters {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}

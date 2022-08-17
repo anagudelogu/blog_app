@@ -20,9 +20,11 @@ RSpec.describe Like, type: :model do
 
   describe '#update_likes_counter' do
     it "should add 1 to post's likes counter" do
-      expect(post.likescounter).to be_zero
-      like.update_likes_counter
+      # When a Like gets created this counter increments, so we created one earlier
+      # and expect the counter to be 1 at this point.
       expect(post.likescounter).to eq(1)
+      like.update_likes_counter
+      expect(post.likescounter).to eq(2)
     end
   end
 

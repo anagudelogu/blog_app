@@ -1,0 +1,30 @@
+.users__card {
+  display: flex;
+  padding: 2rem;
+  gap: 10%;
+}
+
+.users__card_image {
+  width: 20%;
+}
+
+.users__card_info {
+  width: 70%;
+  border: 2px solid black;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+}
+
+.users__card_name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.users__card_posts {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

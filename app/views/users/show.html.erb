@@ -1,1 +1,21 @@
-<h1>Here's user <%= @user_id %> </h1>
+<section class="user">
+  <%= render "shared/user_card", user: @user %>
+  <div class="user__bio">
+    <h3 class="bio__title">Bio</h3>
+    <p class="bio__text">
+    <%= @user.bio %>
+    </p>
+  </div>
+  <ul class="user__post_list">
+    <% @user.most_recent_posts.each do |post|%>
+    <li>
+        <%= render "shared/post_card", post: post %>         
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to(user_posts_path(user_id: @user.id)) do %>
+    <button type="button" class="user__posts_btn">
+      See all posts
+    </button>
+  <% end %>
+</section>

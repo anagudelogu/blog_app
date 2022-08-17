@@ -24,9 +24,11 @@ RSpec.describe Comment, type: :model do
 
   describe '#update_comments_counter' do
     it "should add 1 to post's commentscounter" do
-      expect(post.commentscounter).to be_zero
-      comment.update_comments_counter
+      # When a Like gets created this counter increments, so we created one earlier
+      # and expect the counter to be 1 at this point.
       expect(post.commentscounter).to eq(1)
+      comment.update_comments_counter
+      expect(post.commentscounter).to eq(2)
     end
   end
 
