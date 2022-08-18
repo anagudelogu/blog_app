@@ -11,5 +11,5 @@
       <%= render "shared/comment_card", comment: comment %>
     <% end %>
   </ul>
-
+  <%= render partial: 'comments/form', locals: {comment: @post.comments.build, user_id: @current_user.id, post_id: @post.id}%>
 </section>
