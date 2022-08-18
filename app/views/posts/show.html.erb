@@ -5,6 +5,12 @@
     <p class="post__text">
       <%= @post.text %>
     </p>
+    <% like = @current_user.likes.find_by(post: @post) %>
+    <% if like.nil? %>
+      <%= button_to "Like", likes_path, params: { like: { post_id: @post.id } }, method: :post %>
+    <% else %>
+      <%= button_to "Unlike", like_path(id: like.id), method: :delete %>
+    <% end %>
   </div>
   <ul class="post__comments">
     <% @post.comments.each do |comment| %>
