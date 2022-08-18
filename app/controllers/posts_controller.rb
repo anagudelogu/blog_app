@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.where(user_id: params[:user_id]).find(params[:id])
+    @current_user = current_user
   end
 
   def new
@@ -14,20 +15,19 @@ class PostsController < ApplicationController
   end
 
   def create
+    @current_user = current_user
     post = Post.new(post_params)
     if post.save
-      flash[:notice] = ['Post Succesfully Created!']
-      redirect_to :user_posts
+      redirect_to :user_posts, notice: 'Post Succesfully Created!'
     else
-      flash[:alert] = post.errors.full_messages
-      redirect_to :new_user_post
+      redirect_to :new_user_post, alert: post.errors.full_messages.first
     end
   end
 
   private
 
   def post_params
-    author = User.find(params[:user_id])
+    author = current_user
     hash = params.require(:post).permit(:title, :text)
     hash[:author] = author
     hash
