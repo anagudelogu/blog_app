@@ -8,7 +8,7 @@
   </div>
   <ul class="post__comments">
     <% @post.comments.each do |comment| %>
-      <%= render "shared/comment_card", author: @post.author, comment: comment %>
+      <%= render "shared/comment_card", comment: comment %>
     <% end %>
   </ul>
 
