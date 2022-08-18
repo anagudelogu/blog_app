@@ -33,8 +33,14 @@ RSpec.describe Like, type: :model do
       like.author = nil
       expect(like).not_to be_valid
     end
+
     it 'should not be valid if post is not provided' do
       like.post = nil
+      expect(like).not_to be_valid
+    end
+
+    it "an user can't like the same post more than once" do
+      like = Like.create(author:, post:)
       expect(like).not_to be_valid
     end
   end
