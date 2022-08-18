@@ -1,0 +1,11 @@
+<%= form_with model: comment, url: user_post_comments_path(user_id, post_id) do |form| %>
+  <ul>
+    <li>
+      <%= form.label :text, 'New Comment' %>
+      <%= form.text_field :text %>
+    </li>
+    <li>
+      <%= form.submit %>
+    </li>
+  </ul>
+<% end %>
