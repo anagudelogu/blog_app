@@ -1,7 +1,7 @@
-<div class="users__card">
-  <img class="users__card_image" src=<%= user.photo %> alt=<%= "#{user.name}'s photo"%>>
-  <div class="users__card_info">
-    <span class="users__card_name"><%= user.name %></span>
-    <span class="users__card_posts">Number of posts: <%= user.postscounter%></span>
+<div class="flex gap-y-1 my-2 border-2 border-indigo-600 rounded-md p-1">
+  <img class="flex-1 w-8 aspect-1 rounded-lg" src=<%= user.photo %> alt=<%= "#{user.name}'s photo"%>>
+  <div class="flex-1 flex flex-col justify-center items-center relative">
+    <span class="text-lg font-bold"><%= user.name %></span>
+    <span class="absolute bottom-1 right-1 text-sm">Number of posts: <%= user.postscounter%></span>
   </div>
 </div>    
