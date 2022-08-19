@@ -1,15 +1,14 @@
-<%= form_with class: 'post_form', model: post, url: user_posts_path(user_id: current_user.id) do |form| %>
-  <ul>
+<%= form_with model: post, url: user_posts_path(user_id: current_user.id) do |form| %>
+  <ul class="p-2">
     <li>
-      <%= form.label :title %>
-      <%= form.text_field :title %>
+      <%= form.label :title, class: "text-sm font-bold"%>
+      <%= form.text_field :title, placeholder: "Enter post's title...", class: "border rounded border-indigo-300 focus:border-indigo-600 text-xs block mb-4 w-full" %>
     </li>
     <li>
-      <%= form.label :text %>
-      <%= form.text_area :text, size: "60x30" %>
+      <%= form.text_area :text, placeholder: "Post content goes here...", class: "border rounded border-indigo-300 focus:border-indigo-600 text-xs w-full min-h-[10rem] max-h-[15rem] mb-6" %>
     </li>
     <li>
-      <%= form.submit %>
+      <%= form.submit class: "btn-primary block mx-auto" %>
     </li>
   </ul>
 <% end %>
