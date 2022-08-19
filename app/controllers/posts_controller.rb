@@ -15,8 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @current_user = current_user
-    post = Post.new(post_params)
+    post = current_user.posts.new(post_params)
     if post.save
       redirect_to :user_posts, notice: 'Post Succesfully Created!'
     else
@@ -27,9 +26,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    author = current_user
-    hash = params.require(:post).permit(:title, :text)
-    hash[:author] = author
-    hash
+    params.require(:post).permit(:title, :text)
   end
 end
