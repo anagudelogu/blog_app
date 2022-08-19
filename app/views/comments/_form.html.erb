@@ -1,11 +1,10 @@
-<%= form_with model: comment, url: user_post_comments_path(user_id, post_id) do |form| %>
+<%= form_with model: comment, url: user_post_comments_path(user_id, post_id), class: "mt-2" do |form| %>
   <ul>
     <li>
-      <%= form.label :text, 'New Comment' %>
-      <%= form.text_field :text %>
+      <%= form.text_area :text, placeholder: "Comment something..." ,class: "my-2 block w-full text-xs min-h-max border-indigo-300 focus:border-indigo-600 rounded-lg min-h-[5rem] max-h-[6rem]" %>
     </li>
     <li>
-      <%= form.submit %>
+      <%= form.submit class: "btn-primary block mx-auto" %>
     </li>
   </ul>
 <% end %>
