@@ -1,5 +1,6 @@
-<section class="users">
-  <ul class="users__list">
+  <%= link_to "New Post", new_user_post_path(user_id: @current_user.id), class: "btn-primary"  %>
+<section>
+  <ul>
     <% @users.each do |user| %>
     <li>
       <%= link_to(user_path(id: user.id)) do %>

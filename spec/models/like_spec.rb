@@ -19,12 +19,19 @@ RSpec.describe Like, type: :model do
   end
 
   describe '#update_likes_counter' do
-    it "should add 1 to post's likes counter" do
+    it "should add 1 to post's likes counter if created" do
       # When a Like gets created this counter increments, so we created one earlier
       # and expect the counter to be 1 at this point.
       expect(post.likescounter).to eq(1)
-      like.update_likes_counter
+      u = create(:user)
+      Like.create(author: u, post:)
       expect(post.likescounter).to eq(2)
+    end
+
+    it "should subtract 1 to post's likes counter if deleted" do
+      expect(post.likescounter).to eq(1)
+      like.destroy
+      expect(post.likescounter).to eq(0)
     end
   end
 
@@ -33,8 +40,14 @@ RSpec.describe Like, type: :model do
       like.author = nil
       expect(like).not_to be_valid
     end
+
     it 'should not be valid if post is not provided' do
       like.post = nil
+      expect(like).not_to be_valid
+    end
+
+    it "an user can't like the same post more than once" do
+      like = Like.create(author:, post:)
       expect(like).not_to be_valid
     end
   end

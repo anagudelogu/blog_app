@@ -1,15 +1,33 @@
-<section class="post">
-  <div class="post__content">
-    <h3 class="post__title"><%= "#{@post.title} by #{@post.author.name}" %></h3>
-    <span class="post__counters"><%= "Comments: #{@post.commentscounter} Likes: #{@post.likescounter}"%></span>
-    <p class="post__text">
+<section>
+  <div class="border rounded border-indigo-600 p-2 relative mb-4">
+  <div>
+    <h3 class="text-lg font-bold my-1"><%= @post.title %></h3>
+    <span class="block text-right text-xs px-4 italic mb-4"><%= "#{@post.author.name}, #{time_ago_in_words(@post.created_at)} ago" %></span>
+  </div>
+    <p class="text-sm px-1 mb-6">
       <%= @post.text %>
     </p>
+    <div class="flex justify-between items-center">
+      <span class="text-xs"><%= "Comments: #{@post.commentscounter}" %></span>
+      <div class="flex items-center justify-center gap-1">
+        <% like = @current_user.likes.find_by(post: @post) %>
+        <% if like.nil? %>
+          <%= button_to likes_path, params: { like: { post_id: @post.id } }, method: :post do %>
+            <span class="mi">favorite_border</span>
+          <% end %>
+        <% else %>
+          <%= button_to like_path(id: like.id), method: :delete do %>
+            <span class="mi">favorite</span>
+          <% end %>
+        <% end %>
+        <span class="text-sm text-center"><%= @post.likescounter %></span>
+      </div>
+    </div>
   </div>
-  <ul class="post__comments">
+  <ul class="border rounded border-indigo-400 mt-1 p-2">
     <% @post.comments.each do |comment| %>
-      <%= render "shared/comment_card", author: @post.author, comment: comment %>
+      <%= render "shared/comment_card", comment: comment %>
     <% end %>
+    <%= render partial: 'comments/form', locals: {comment: @post.comments.build, user_id: @current_user.id, post_id: @post.id}%>
   </ul>
-
 </section>

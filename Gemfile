@@ -80,3 +80,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'simplecov', require: false
 end
+
+gem 'tailwindcss-rails', '~> 2.0'
+
+gem 'material_icons', '~> 2.2'

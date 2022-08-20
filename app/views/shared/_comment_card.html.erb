@@ -1,3 +1,9 @@
-<li class="comment">
-  <%= "Username: #{author.name}, Comment: #{comment.text}" %>
+<li class="border rounded-md border-indigo-300 mb-2 p-1">
+  <span class="text-xs font-semibold"><%= comment.author.name %></span>
+  <p class="text-xs">
+    <%= comment.text %>
+  </p>
+  <span class="text-xs text-right block mt-3" >
+    <%= "#{time_ago_in_words(comment.created_at)} ago" %>
+  </span>
 </li>
