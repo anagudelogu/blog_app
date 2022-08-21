@@ -25,9 +25,7 @@
     </div>
   </div>
   <ul class="border rounded border-indigo-400 mt-1 p-2">
-    <% @post.comments.each do |comment| %>
-      <%= render "shared/comment_card", comment: comment %>
-    <% end %>
-    <%= render partial: 'comments/form', locals: {comment: @post.comments.build, user_id: @current_user.id, post_id: @post.id}%>
+    <%= render @post.comments.order(id: :desc) %>
+    <%= render partial: 'comments/form', locals: {comment: @post.comments.build, user: current_user, post: @post}%>
   </ul>
 </section>
