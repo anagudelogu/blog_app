@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     post = comment.post
 
-    flash[:alert] = comment.errors.full_messages.to_sentence.first unless comment.save
+    flash[:alert] = comment.errors.full_messages.to_sentence unless comment.save
 
     redirect_to user_post_path(post.author, post)
   end
