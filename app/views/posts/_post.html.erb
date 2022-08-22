@@ -16,12 +16,10 @@
 
     <% if show_comments && post.comments.size.positive? %>
       <ul class="border rounded border-indigo-400 mt-1 p-2">
-      <% if all_comments %>
-        <%= render post.comments.order(id: :desc) %>
-      <% else %>
+        <li class="font-bold text-sm"> Comments: </li>  
         <%= render post.most_recent_comments %>
-      <% end %>
       </ul>
     <% end %>
+    
   </div>
 <% end %>
