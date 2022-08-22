@@ -26,6 +26,6 @@
   </div>
   <ul class="border rounded border-indigo-400 mt-1 p-2">
     <%= render @post.comments.order(id: :desc) %>
-    <%= render partial: 'comments/form', locals: {comment: @post.comments.build, user: current_user, post: @post}%>
   </ul>
+    <%= render partial: 'comments/form', locals: { comment: @post.comments.build, user: current_user, post: @post }%>
 </section>
