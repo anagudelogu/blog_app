@@ -61,6 +61,9 @@ group :development, :test do
   # Factory-bot - Factory instances (mocks-stubs, etc)
   # See https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails'
+
+  # Detect n+1 performance issues [https://github.com/flyerhzm/bullet]
+  gem 'bullet'
 end
 
 group :development do
