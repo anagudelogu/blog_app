@@ -1,23 +1,8 @@
 <section>
-  <%= render "shared/user_card", user: @author %>
+  <%= render @author %>
   <div>
-  <% @posts.each do |post|%>
-    <%= link_to(user_post_path(user_id: @author.id, id: post.id)) do %>
-      <div class="my-5">
-        <%= render "shared/post_card", post: post %>
-        <ul class="border rounded border-indigo-400 mt-1 p-2">
-          <% if post.most_recent_comments.size > 0 %>
-            <% post.most_recent_comments.each do |comment| %>
-              <%= render "shared/comment_card", author: @author, comment: comment %>
-            <% end %>
-          <% else %>
-            <li class="text-xs"> There are no comments yet.</li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <% end %>
+    <%= render @author.posts.order(id: :desc), show_comments: true %>
   </div>
-  <button class="btn-primary block mx-auto" type="button">Pagination</button>
+  <button class="btn-primary block w-full" type="button">Pagination</button>
 </section>
 

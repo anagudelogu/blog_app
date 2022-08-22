@@ -1,23 +1,13 @@
 <section>
-  <%= render "shared/user_card", user: @user %>
+  <%= render @user %>
   <div class="border rounded border-indigo-600 my-1 p-2">
     <h3 class="text-lg font-bold">Bio</h3>
     <p class="text-sm">
     <%= @user.bio %>
     </p>
   </div>
-  <ul>
-    <% @user.most_recent_posts.each do |post|%>
-    <li class="my-3">
-      <%= link_to(user_post_path(user_id: @user.id, id: post.id)) do %>
-        <%= render "shared/post_card", post: post %>
-      <% end %>         
-    </li>
-    <% end %>
-  </ul>
-  <%= link_to(user_posts_path(user_id: @user.id)) do %>
-    <button type="button" class="btn-primary mx-auto block">
-      See all posts
-    </button>
-  <% end %>
+  <div>
+    <%= render @user.most_recent_posts, show_comments: false %>     
+  </div>
+  <%= link_to "See all posts", user_posts_path(@user), class: "btn-primary block text-center" %>
 </section>

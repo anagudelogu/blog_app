@@ -1,12 +1,6 @@
-  <%= link_to "New Post", new_user_post_path(user_id: @current_user.id), class: "btn-primary"  %>
+<%= link_to "New Post", new_user_post_path(current_user), class: "btn-primary block text-center"  %>
 <section>
-  <ul>
-    <% @users.each do |user| %>
-    <li>
-      <%= link_to(user_path(id: user.id)) do %>
-        <%= render "shared/user_card", user: user %>
-      <% end %>
-    </li>
-    <% end %>
-  </ul>
+  <div>
+    <%= render @users %>
+  </div>
 </section>
