@@ -17,7 +17,7 @@
     <% if show_comments && post.comments.size.positive? %>
       <ul class="border rounded border-indigo-400 mt-1 p-2">
         <li class="font-bold text-sm"> Comments: </li>  
-        <%= render post.most_recent_comments %>
+        <%= render post.most_recent_comments.includes(:author) %>
       </ul>
     <% end %>
     
