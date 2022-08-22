@@ -64,6 +64,8 @@ group :development, :test do
 
   # Detect n+1 performance issues [https://github.com/flyerhzm/bullet]
   gem 'bullet'
+
+  gem 'capybara'
 end
 
 group :development do
