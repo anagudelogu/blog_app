@@ -29,7 +29,7 @@
     <% if @post.comments.size.zero? %>
       <li class="text-xs"> No comments yet. Be the first!</li>
     <% else %>
-      <%= render @post.comments.order(id: :desc) %>
+      <%= render @post.comments.order(id: :desc).includes(:author) %>
     <% end %>
   </ul>
     <%= render partial: 'comments/form', locals: { comment: @post.comments.build, post: @post }%>
