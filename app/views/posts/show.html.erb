@@ -25,7 +25,12 @@
     </div>
   </div>
   <ul class="border rounded border-indigo-400 mt-1 p-2">
-    <%= render @post.comments.order(id: :desc) %>
+      <li class="font-bold"> Comments: </li>  
+    <% if @post.comments.size.zero? %>
+      <li class="text-xs"> No comments yet. Be the first!</li>
+    <% else %>
+      <%= render @post.comments.order(id: :desc) %>
+    <% end %>
   </ul>
     <%= render partial: 'comments/form', locals: { comment: @post.comments.build, user: current_user, post: @post }%>
 </section>
