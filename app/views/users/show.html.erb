@@ -7,7 +7,7 @@
     </p>
   </div>
   <div>
-    <%= render @user.most_recent_posts, show_comments: false %>     
+    <%= render @user.most_recent_posts.includes(:author), show_comments: false %>     
   </div>
   <%= link_to "See all posts", user_posts_path(@user), class: "btn-primary block text-center" %>
 </section>
