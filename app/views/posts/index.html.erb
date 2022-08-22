@@ -1,7 +1,7 @@
 <section>
   <%= render @author %>
   <div>
-    <%= render @author.posts.order(id: :desc), show_comments: true %>
+    <%= render @author.posts.order(id: :desc).includes(:author), show_comments: true %>
   </div>
   <button class="btn-primary block w-full" type="button">Pagination</button>
 </section>
