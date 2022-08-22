@@ -1,5 +1,5 @@
 <section>
-  <%= render "shared/user_card", user: @author %>
+  <%= render @author %>
   <div>
     <%= render @author.posts.order(id: :desc), show_comments: true, all_comments: false %>
   </div>
