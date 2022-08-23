@@ -66,6 +66,8 @@ group :development, :test do
   gem 'bullet'
 
   gem 'capybara'
+
+  gem 'webdrivers', '~> 5.0'
 end
 
 group :development do
