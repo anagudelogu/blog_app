@@ -14,10 +14,10 @@
       </span>
     </div>
 
-    <% if show_comments && post.comments.size.positive? %>
+    <% if show_comments && post.commentscounter.positive? %>
       <ul class="border rounded border-indigo-400 mt-1 p-2">
         <li class="font-bold text-sm"> Comments: </li>  
-        <%= render post.most_recent_comments.includes(:author) %>
+        <%= render post.most_recent_comments %>
       </ul>
     <% end %>
     
