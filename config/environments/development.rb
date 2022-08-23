@@ -18,7 +18,7 @@ Rails.application.configure do
     Bullet.rails_logger  = true
     Bullet.add_footer    = true
 
-    Bullet.counter_cache_enable        = false
+    # Bullet.counter_cache_enable        = false
   end
 
   # Settings specified here will take precedence over those in config/application.rb.
