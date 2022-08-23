@@ -71,4 +71,6 @@ RSpec.configure do |config|
       Bullet.end_request
     end
   end
+
+  config.alias_example_to :check
 end
