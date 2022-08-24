@@ -79,6 +79,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'letter_opener', '~> 1.8', '>= 1.8.1'
 end
 
 group :test do
@@ -91,3 +93,5 @@ end
 gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'material_icons', '~> 2.2'
+
+gem 'devise', github: 'heartcombo/devise', branch: 'main'

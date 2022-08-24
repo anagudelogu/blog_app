@@ -1,19 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.new(name: 'name', photo: 'photo', bio: 'bio') }
-  before { user.save }
+  let(:user) { create(:user) }
 
   it 'should have a name' do
-    expect(user).to have_attributes(name: 'name')
+    expect(user).to have_attributes(name: user.name)
   end
 
   it 'should have a photo' do
-    expect(user).to have_attributes(photo: 'photo')
+    expect(user).to have_attributes(photo: user.photo)
   end
 
   it 'should have a bio' do
-    expect(user).to have_attributes(bio: 'bio')
+    expect(user).to have_attributes(bio: user.bio)
   end
 
   describe '#most_recent_posts' do

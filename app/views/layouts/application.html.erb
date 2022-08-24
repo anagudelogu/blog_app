@@ -12,11 +12,19 @@
   </head>
 
   <body>
-  <% flash.each do |type, msgs| %>
-    <div>
-      <%= msgs %>
-    </div>
-  <% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <div class="flex bg-indigo-600 justify-around text-white h-12 items-center">
+        <div class="flex items-center justify-center gap-1 font-bold">
+          <span class="material-icons">perm_identity</span>
+          <span><%= current_user.name.capitalize %></span>
+        </div> 
+        <%= button_to "Logout", destroy_user_session_path , { method: :delete, data: { turbo: false }, class: 'bg-white text-indigo-600 px-3 py-1 rounded' } %>
+      </div>
+    <% end %>
+
   <main class="mx-4 my-8">
     <%= yield %>
   </main>

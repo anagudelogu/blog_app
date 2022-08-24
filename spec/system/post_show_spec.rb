@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'In User post show page', type: :system do
-  let(:u) { build(:user, name: 'Author') }
+  let(:u) { create(:user, name: 'Author') }
   let(:p1) { build(:post, author: u, title: 'Title') }
   let(:c) { build(:comment, post: p1, text: 'This is the most recent comment') }
 
   before do
-    u.save
+    sign_in(u)
+    u.confirm
     p1.save
     6.times { create(:comment, post: p1, text: 'comment') }
     c.save

@@ -5,6 +5,8 @@ RSpec.describe 'PostsController', type: :request do
 
   describe 'GET /users/:id/posts' do
     before do
+      sign_in(author)
+      author.confirm
       get user_posts_path(user_id: author.id)
     end
 
@@ -21,6 +23,8 @@ RSpec.describe 'PostsController', type: :request do
     let(:post) { create(:post, author:) }
 
     before do
+      sign_in(author)
+      author.confirm
       get user_post_path(user_id: author.id, id: post.id)
     end
 
