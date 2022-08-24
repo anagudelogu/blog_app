@@ -14,6 +14,14 @@
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  <div>
+    <% if user_signed_in? %>
+      <span>Welcome! <%= current_user.name %></span>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+    <% end %>
+  </div>
+
   <main class="mx-4 my-8">
     <%= yield %>
   </main>
