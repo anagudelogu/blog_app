@@ -12,9 +12,6 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
     <% if user_signed_in? %>
       <div class="flex bg-indigo-600 justify-around text-white h-12 items-center">
         <div class="flex items-center justify-center gap-1 font-bold">
@@ -25,7 +22,13 @@
       </div>
     <% end %>
 
-  <main class="mx-4 my-8">
+  <div>
+    <p class="text-yellow-300 text-center pt-4"><%= notice %></p>
+    <p class="text-red-600 text-center pt-4"><%= alert %></p>
+  </div>
+
+
+  <main class="px-4">
     <%= yield %>
   </main>
   </body>
