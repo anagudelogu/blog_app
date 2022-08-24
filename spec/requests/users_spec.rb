@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'UsersController', type: :request do
-  let(:user) { build(:user) }
+  let(:user) { create(:user) }
 
   describe 'GET /users' do
     before do
-      user.save
+      sign_in(user)
+      user.confirm
       get users_path
     end
 
@@ -20,7 +21,8 @@ RSpec.describe 'UsersController', type: :request do
 
   describe 'GET /users/:id' do
     before do
-      user.save
+      sign_in(user)
+      user.confirm
       get user_path(id: user.id)
     end
 
