@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'In the User show page', type: :system do
-  let(:u) { build(:user) }
+  let(:u) { create(:user) }
   let(:p1) { build(:post, author: u, title: 'Title') }
 
   before do
-    u.save
+    sign_in(u)
+    u.confirm
     5.times { create(:post, author: u) }
     p1.save
     visit user_path(u)

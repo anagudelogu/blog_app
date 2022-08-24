@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'In the users index page', type: :system do
-  let(:u) { build(:user) }
+  let(:u) { create(:user) }
   before do
-    u.save
+    sign_in(u)
+    u.confirm
     3.times { create(:post, author: u) }
     visit users_path
   end

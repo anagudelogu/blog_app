@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'In the User posts index page', type: :system do
-  let(:u) { build(:user) }
+  let(:u) { create(:user) }
   let(:p1) { build(:post, author: u, title: 'Title') }
 
   before do
-    u.save
+    sign_in(u)
+    u.confirm
     p1.save
     6.times { create(:comment, author: u, post: p1) }
     visit user_posts_path(u)
