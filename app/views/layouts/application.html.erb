@@ -12,11 +12,8 @@
   </head>
 
   <body>
-  <% flash.each do |type, msgs| %>
-    <div>
-      <%= msgs %>
-    </div>
-  <% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <main class="mx-4 my-8">
     <%= yield %>
   </main>
