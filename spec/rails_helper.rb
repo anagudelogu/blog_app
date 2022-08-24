@@ -75,4 +75,5 @@ RSpec.configure do |config|
   config.alias_example_to :check
 
   config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
