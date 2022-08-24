@@ -73,4 +73,6 @@ RSpec.configure do |config|
   end
 
   config.alias_example_to :check
+
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
