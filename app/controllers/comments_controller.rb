@@ -1,10 +1,17 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def create
-    comment = current_user.comments.new(comment_params)
-    post = comment.post
+    @comment.user_id = params[:user_id]
+    post = @comment.post
 
-    flash[:alert] = comment.errors.full_messages.to_sentence unless comment.save
+    flash[:alert] = @comment.errors.full_messages.to_sentence unless @comment.save
 
+    redirect_to user_post_path(post.author, post)
+  end
+
+  def destroy
+    post = @comment.post
+    @comment.destroy
     redirect_to user_post_path(post.author, post)
   end
 

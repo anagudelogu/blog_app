@@ -81,6 +81,12 @@ ruby bin/rspec
 - Twitter: [@AgudeloAndres\_\_](https://twitter.com/AgudeloAndres__)
 - LinkedIn: [Andres Agudelo Guzman](https://linkedin.com/in/aagst)
 
+👤 _Juan Francisco Rosario Suli_
+
+- GitHub: [@jrosario19](https://github.com/jrosario19)
+- Twitter: [@jrosario19](https://twitter.com/jrosario19)
+- LinkedIn: [Juan Fco. Rosario](https://linkedin.com/in/juan-francisco-rosario-suli-44595051)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!

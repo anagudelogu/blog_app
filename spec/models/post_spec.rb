@@ -22,12 +22,22 @@ RSpec.describe Post, type: :model do
   end
 
   describe '#update_post_counter' do
-    it "should add 1 to the author's postscounter" do
-      # When a Post gets created this counter increments, so we created one earlier
-      # and expect the counter to be 1 at this point.
-      expect(author.postscounter).to eq(1)
-      post.update_post_counter
-      expect(author.postscounter).to eq(2)
+    context 'when a post is created' do
+      it "should add 1 to the author's postscounter" do
+        # When a Post gets created this counter increments, so we created one earlier
+        # and expect the counter to be 1 at this point.
+        expect(author.postscounter).to eq(1)
+        create(:post, author:)
+        expect(author.postscounter).to eq(2)
+      end
+    end
+
+    context 'when a post is destroyed' do
+      it "should substract 1 to the author's postscounter" do
+        expect(author.postscounter).to eq(1)
+        post.destroy
+        expect(author.postscounter).to eq(0)
+      end
     end
   end
 
