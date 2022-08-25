@@ -23,6 +23,14 @@
         <span class="text-sm text-center"><%= @post.likescounter %></span>
       </div>
     </div>
+    <div>
+      <% if can? :destroy, @post %>
+        <%= button_to "Delete",
+                      user_post_path(current_user, @post),
+                      method: :delete,
+                      form: { data: { turbo_confirm: 'Are you sure you want to delete this post?' }} %>
+      <% end %>
+    </div>
   </div>
   <ul class="border rounded border-indigo-400 mt-1 p-2">
       <li class="font-bold"> Comments: </li>  

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }, path: '', path_names: { sign_in: 'login' }
   root "users#index"
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :new, :create, :show] do
+    resources :posts, only: [:index, :new, :create, :show, :destroy] do
       resources :comments, only: [:create]
     end
   end
