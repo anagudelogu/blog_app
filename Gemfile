@@ -95,3 +95,5 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'material_icons', '~> 2.2'
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
+
+gem 'cancancan', '~> 3.4'
