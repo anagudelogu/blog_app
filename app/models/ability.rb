@@ -6,7 +6,7 @@ class Ability
 
     can %i[read create], :all
     can :destroy, Post, author: user
-
+    can :destroy, Comment, author: user
     return unless user.role == 'admin'
 
     can :manage, :all
