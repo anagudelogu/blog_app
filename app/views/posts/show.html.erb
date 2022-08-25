@@ -37,7 +37,7 @@
     <% if @post.commentscounter.zero? %>
       <li class="text-xs"> No comments yet. Be the first!</li>
     <% else %>
-      <%= render @comments %>
+      <%= render partial: 'comments/comment', collection: @comments, locals: { post: @post } %>
     <% end %>
   </ul>
     <%= render partial: 'comments/form', locals: { comment: @post.comments.build, post: @post }%>
