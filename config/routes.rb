@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  devise_for :users, controllers: { confirmations: 'confirmations' }, path: '', path_names: { sign_in: 'login' }
+  devise_for :users, controllers: { confirmations: 'confirmations', sessions: 'sessions' }, path: '', path_names: { sign_in: 'login' }
   root "users#index"
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
