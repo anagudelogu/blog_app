@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
   def create
-    @comment.user_id = params[:user_id]
+    @comment.user_id = current_user.id
     post = @comment.post
 
     flash[:alert] = @comment.errors.full_messages.to_sentence unless @comment.save

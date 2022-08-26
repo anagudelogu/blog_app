@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  devise_for :users, controllers: { confirmations: 'confirmations' }, path: '', path_names: { sign_in: 'login' }
+  devise_for :users, controllers: { confirmations: 'confirmations', sessions: 'sessions' }, path: '', path_names: { sign_in: 'login' }
   root "users#index"
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
@@ -12,5 +12,15 @@ Rails.application.routes.draw do
   end
   
   resources :likes, only: [:create, :destroy]
+
+  namespace :api do # /api
+    namespace :v1 do # /api/v1
+      resources :users, only: [:index, :show] do # api/v1/users
+        resources :posts, only: [:index], format: :json do #api/v1/users/:user_id/posts
+          resources :comments, only: [:index, :create], format: :json #api/v1/users/:user_id/posts/:post_id/comments
+        end
+      end
+    end
+  end
 
 end
