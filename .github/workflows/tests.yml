@@ -31,10 +31,14 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Create database
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
-          bundler exec rails db:prepare RAILS_ENV=test
+          bundle exec rails db:prepare RAILS_ENV=test
 
       - name: Run tests
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: bin/rspec
       - name: Upload coverage results
         uses: actions/upload-artifact@master
