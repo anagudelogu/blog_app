@@ -48,6 +48,9 @@ gem 'bootsnap', require: false
 # https://github.com/waiting-for-dev/devise-jwt
 gem 'devise-jwt'
 
+# https://github.com/cyu/rack-cors
+gem 'rack-cors'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
