@@ -51,6 +51,9 @@ gem 'devise-jwt'
 # https://github.com/cyu/rack-cors
 gem 'rack-cors'
 
+# https://github.com/rswag/rswag
+gem 'rswag'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
