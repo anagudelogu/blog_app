@@ -1,8 +1,8 @@
+# rubocop:disable Metrics/BlockLength
 require 'swagger_helper'
 require 'devise/jwt/test_helpers'
 
 RSpec.describe 'api/v1/comments', type: :request do
-
   path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
     # You'll want to customize the parameter types...
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
@@ -16,7 +16,6 @@ RSpec.describe 'api/v1/comments', type: :request do
     end
 
     get('list comments') do
-
       produces 'application/json'
       security [bearerAuth: []]
 
@@ -60,8 +59,8 @@ RSpec.describe 'api/v1/comments', type: :request do
                       }
                     }
                   }
-        
-        let(:comment) { create(:comment, post: p1)}
+
+        let(:comment) { create(:comment, post: p1) }
         let(:params) { { comment: { text: comment.text } } }
 
         after do |example|
@@ -76,3 +75,5 @@ RSpec.describe 'api/v1/comments', type: :request do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
